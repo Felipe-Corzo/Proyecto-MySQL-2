@@ -40,12 +40,12 @@ Se implementaron vistas para facilitar la lectura de datos complejos:
 ## 5  Ejemplos de Consultas SQL:
 ```sql
 -- Buscar productos de categorías específicas (Gaseosas y Aguas)
-SELECT nombre, precio FROM Producto WHERE id_categoria IN (1, 2, 3);
+SELECT nombre, precio, id_categoria FROM Producto WHERE id_categoria IN (1, 2, 3);
 ```
 ![Texto Alternativo](Almacenamiento/Diagramas/consulta1.png)
 ```sql
 -- Ranking de los 5 productos más vendidos
-SELECT pr.nombre, SUM(dp.cantidad) AS unidades 
+SELECT pr.nombre, SUM(dp.cantidad) AS unidades_vendidas
 FROM Producto pr 
 JOIN Detalle_pedido dp ON pr.id_producto = dp.id_producto 
 GROUP BY pr.nombre ORDER BY unidades DESC LIMIT 5;
