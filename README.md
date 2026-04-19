@@ -37,17 +37,19 @@ Se implementaron vistas para facilitar la lectura de datos complejos:
 2.  **`vista_productos_bajo_stock`**: Reporte crítico de productos que alcanzaron su stock mínimo.
 3.  **`vista_clientes_activos`**: Listado de clientes que han generado al menos una transacción.
 
-## 5.  Ejemplos de Consultas SQL:
+## 5  Ejemplos de Consultas SQL:
 ```sql
 -- Buscar productos de categorías específicas (Gaseosas y Aguas)
 SELECT nombre, precio FROM Producto WHERE id_categoria IN (1, 2, 3);
+```
 ![Texto Alternativo](Almacenamiento/Diagramas/consulta1.png)
-
+```sql
 -- Ranking de los 5 productos más vendidos
 SELECT pr.nombre, SUM(dp.cantidad) AS unidades 
 FROM Producto pr 
 JOIN Detalle_pedido dp ON pr.id_producto = dp.id_producto 
 GROUP BY pr.nombre ORDER BY unidades DESC LIMIT 5;
+```
 ![Texto Alternativo](Almacenamiento/Diagramas/Consulta2.png)
 
 ## 🚀 6. Recomendaciones y Expansión Futura
