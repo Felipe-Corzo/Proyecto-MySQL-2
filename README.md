@@ -42,7 +42,7 @@ Se implementaron vistas para facilitar la lectura de datos complejos:
 -- Buscar productos de categorías específicas (Gaseosas y Aguas)
 SELECT nombre, precio, id_categoria FROM Producto WHERE id_categoria IN (1, 2, 3);
 ```
-![Texto Alternativo](Almacenamiento/Diagramas/consulta1.png)
+![Texto Alternativo](Almacenamiento/Diagramas/consulta1.svg)
 ```sql
 -- Ranking de los 5 productos más vendidos
 SELECT pr.nombre, SUM(dp.cantidad) AS unidades_vendidas
