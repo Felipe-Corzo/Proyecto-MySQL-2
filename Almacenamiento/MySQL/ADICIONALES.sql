@@ -293,3 +293,19 @@ SELECT
 FROM Pedido
 GROUP BY mes
 ORDER BY mes DESC;
+
+-- VER CADA PRODUCTO Y CUANTAS VECES HA SIDO VENDIDO
+
+SELECT nombre , (SELECT SUM(cantidad) FROM Detalle_pedido WHERE id_producto = Producto.id_producto) as VENDIDO
+FROM Producto ;
+
+-- PRODUCTOS QUE SON MAS CAROS QUE EL PRECIOPROMEDIO DE TODO EL INVENTARIO
+
+SELECT nombre, precio
+FROM Producto 
+WHERE precio > (select AVG(precio) FROM Producto);
+
+-- producto mas caro de cada categoria 
+SELECT nombre, precio 
+FROM Producto P_EXTERNO
+WHERE precio = (SELECT MAX(precio) FROM Producto P_INTERNO WHERE P_INTERNO.id_categoria = P_EXTERNO.id_categoria  );
